@@ -19,18 +19,26 @@ class Book
     private int pages;
     // Exercise 2.88
     private String refNumber;
+    // Exercise 2.91
+    private int borrowed;
+    // Exercise 2.92
+    private boolean courseText;
 
     /**
      * Set the author and title fields when this object
      * is constructed.
      * Exercise 2.85 add pages to constructor
+     * Exercise 2.92 Boolean for courseText
      */
-    public Book(String bookAuthor, String bookTitle, int bookPages)
+    public Book(String bookAuthor, String bookTitle, int bookPages, boolean bookCourseText)
     {
         author      = bookAuthor;
         title       = bookTitle;
         pages       = bookPages;
         refNumber   = "";
+        borrowed    = 0;
+        courseText  = bookCourseText;
+        
     }
 
     // Add the methods here ...
@@ -77,6 +85,7 @@ class Book
     /**
      * Exercise 2.87 print book details
      * Exercise 2.89 print book refNumber
+     * Exercise 2.91 print number of times book was borrowed
        */
     public void printDetails(){
         System.out.println("\nBook Title: " + title);
@@ -87,6 +96,7 @@ class Book
         }else{
             System.out.println("Book Reference Number: " + "ZZZ");
         }
+        System.out.println("Book Borrowed Count: " + borrowed);
 
     }
     /**
@@ -104,5 +114,22 @@ class Book
     
    public String getRefNumber(){
        return refNumber;
+   }
+   
+   /**
+    * Exercise 2.91 keep track of book being borrowed
+      */
+   public void setBorrowed(){
+       borrowed += 1;
+   }
+   public int getBorrowed(){
+       return borrowed;
+   }
+   
+   /**
+    * Exercise 2.92 is book a course text
+      */
+    public boolean isCourseText(){
+        return courseText;
    }
 }
